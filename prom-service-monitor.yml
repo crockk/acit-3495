@@ -3,14 +3,14 @@ kind: ServiceMonitor
 metadata:
   name: kafka-service-monitor
   labels:
-    app: acit3495
+    app: acit3495          # not sure what to label this
 spec:
   selector:
     matchLabels:
-      strimzi.io/kind: Kafka
+      strimzi.io/kind: Kafka    # matching labels in prometheus?
   namespaceSelector:
     matchNames:
-      - tls-kafka
+      - monitoring  # this is the namespace of our kafka cluster
   endpoints:
   - port: metrics
     honorLabels: true
