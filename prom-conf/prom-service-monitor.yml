@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: kafka-service-monitor
+  name: web-app-service-monitor
   labels:
     app: acit3495          # not sure what to label this
 spec:
