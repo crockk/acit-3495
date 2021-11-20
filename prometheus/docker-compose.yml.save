@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  # docker run -d -p 9090:9090 -v /home/tushya/prometheus:/etc/prometheus --name prometheus prom/prometheus;
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3030:3000
+    # container_name: grafana
+
+    # volumes:
+    #   - todo-mysql-data:/var/lib/mysql
+
+#  node-exporter:
+#    image: prom/node-exporter
+#    ports:
+#      - 9100:9100
+
+volumes:
+  prometheus-data:
+
+
+

@@ -1,0 +1,11 @@
+groups:
+- name: cpu-node
+  rules:
+  - record: avgCpu5m
+    expr: avg by (job, instance, mode) (rate(node_cpu_seconds_total[5m]))
+
+- name: max-temp
+  rules:
+  - record: maxTempByChip
+    expr: max by(device,chip) (node_hwmon_temp_celsius)
+

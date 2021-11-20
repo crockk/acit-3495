@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    hostname: prometheus
+    container_name: prometheus
+    networks:
+      - monitoring-net
+    restart: always
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3030:3000
+    hostname: grafana
+    container_name: grafana
+    networks:
+      - monitoring-net
+    volumes:
+      - grafana-data:/var/lib/grafana
+    restart: always
+#  node-exporter:
+#    image: prom/node-exporter
+#    ports:
+#      - 9100:9100
+
+volumes:
+  prometheus-data: {}
+  grafana-data: {}
+networks:
+  monitoring-net: {}
