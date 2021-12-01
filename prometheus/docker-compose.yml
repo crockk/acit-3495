@@ -24,10 +24,6 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
     restart: always
-#  node-exporter:
-#    image: prom/node-exporter
-#    ports:
-#      - 9100:9100
 
 volumes:
   prometheus-data: {}
